@@ -1,0 +1,118 @@
+@import url("./assets/fonts/static/WorkSans-Bold.ttf");
+@import url("./assets/fonts/static/WorkSans-Regular.ttf");
+@import url("./assets/fonts/static/WorkSans-SemiBold.ttf");
+
+:root {
+  --white: hsl(0, 0%, 100%);
+  --light-pink: hsl(275, 100%, 97%);
+  --grayish-purple: hsl(292, 16%, 49%);
+  --dark-purple: hsl(292, 42%, 14%);
+
+  --top-image-size: 300px;
+
+  --font-bold: 700;
+  --font-semibold: 600;
+  --font-regular: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  font-family: "Work Sans", sans-serif;
+  background-color: var(--light-pink);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+p {
+  font-size: 16px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: var(--top-image-size);
+  top: 0;
+  margin: 0 auto;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  background-image: url("./assets/images/background-pattern-desktop.svg");
+}
+
+.card_container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+
+  background-color: transparent;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card_container > .card {
+  width: 500px;
+  height: 600px;
+  background-color: var(--white);
+
+  border-radius: 15px;
+
+  box-shadow: 1px 1px 10px #00000014;
+
+  padding: 15px;
+}
+
+.card_container > .card > .title {
+  font-size: 50px;
+  font-weight: var(--font-bold);
+
+  margin: 10px 0;
+}
+
+.card_container > .card > .title > .title_icon {
+  background-image: url("./assets/images/icon-star.svg");
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: static;
+}
+
+@media only screen and (max-width: 1440px) {
+  /* Desktop */
+  .header {
+    background-image: url("./assets/images/background-pattern-desktop.svg");
+  }
+  .card_container > .card {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  /* Mobile */
+  .header {
+    /* background-image: none;
+    background-color: red; */
+    background-image: url("./assets/images/background-pattern-mobile.svg");
+  }
+  .card_container > .card {
+    width: 80%;
+  }
+}

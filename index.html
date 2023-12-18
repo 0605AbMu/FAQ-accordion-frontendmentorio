@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | FAQ accordion</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;400;700&family=Work+Sans:ital,wght@0,600;0,700;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./accordion.css" />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header"></div>
+      <div class="card_container">
+        <div class="card">
+          <div class="title"><span class="title_icon"></span>FAQs</div>
+          <div id="accordion" class="accordion">
+            <div class="accordion-item">
+              <div id="title" class="accordion-item_title">
+                <p class="accordion-item_title_label">
+                  What is Frontend Mentor, and how will it help me?
+                </p>
+                <span id="icon" class="accordion_icon-plus"></span>
+              </div>
+              <p id="description" class="accordion-item_desc">
+                Frontend Mentor offers realistic coding challenges to help
+                developers improve their frontend coding skills with projects in
+                HTML, CSS, and JavaScript. It's suitable for all levels and
+                ideal for portfolio building.
+              </p>
+            </div>
+
+            <hr />
+
+            <div class="accordion-item">
+              <div id="title" class="accordion-item_title">
+                <p class="accordion-item_title_label">
+                  Is Frontend Mentor free?
+                </p>
+                <span id="icon" class="accordion_icon-plus"></span>
+              </div>
+              <p id="description" class="accordion-item_desc">
+                Yes, Frontend Mentor offers both free and premium coding
+                challenges, with the free option providing access to a range of
+                projects suitable for all skill levels.
+              </p>
+            </div>
+
+            <hr />
+
+            <div class="accordion-item">
+              <div id="title" class="accordion-item_title">
+                <p class="accordion-item_title_label">
+                  Can I use Frontend Mentor projects in my portfolio?
+                </p>
+                <span id="icon" class="accordion_icon-plus"></span>
+              </div>
+              <p id="description" class="accordion-item_desc">
+                Yes, you can use projects completed on Frontend Mentor in your
+                portfolio. It's an excellent way to showcase your skills to
+                potential employers!
+              </p>
+            </div>
+
+            <hr />
+
+            <div class="accordion-item">
+              <div id="title" class="accordion-item_title">
+                <p class="accordion-item_title_label">
+                  How can I get help if I'm stuck on a Frontend Mentor
+                  challenge?
+                </p>
+                <span id="icon" class="accordion_icon-plus"></span>
+              </div>
+              <p id="description" class="accordion-item_desc">
+                The best place to get help is inside Frontend Mentor's Discord
+                community. There's a help channel where you can ask questions
+                and seek support from other community members.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+
+    <script>
+      // import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+      // console.log(uuidv4());
+
+      // const makeNewDiv = () => {};
+
+      // const makeAccordionItem = (label, description) => {
+      //   const rawElem = `
+      //   <div class="accordion-item" onclick="onItemClick">
+      //         <div class="accordion-item_title">
+      //           <p class="accordion-item_title_label">
+      //             ${label}
+      //           </p>
+      //           <span class="accordion_icon-plus"></span>
+      //         </div>
+      //         <p class="accordion-item_desc">
+      //           ${description}
+      //         </p>
+      //       </div>
+      //   `;
+      // };
+
+      const AccordionFactory = (id) => {
+        const accordion = document.getElementById(id);
+
+        const items = Array.from(
+          accordion.getElementsByClassName("accordion-item")
+        );
+
+        items.forEach((item) => {
+          const title = item
+            .getElementsByClassName("accordion-item_title")
+            .item(0);
+
+          const desc = title.nextElementSibling;
+          const icon = title.getElementsByTagName("span").item(0);
+
+          title.addEventListener("click", (ev) => {
+            desc.classList.toggle("accordion-item_desc_hidden");
+            desc.classList.toggle("accordion-item_desc_visible");
+            icon.classList.toggle("accordion_icon-plus");
+            icon.classList.toggle("accordion_icon-minus");
+          });
+        });
+
+        console.log(items);
+      };
+
+      AccordionFactory("accordion");
+
+      // accordion.onclick = onClick;
+    </script>
+  </body>
+</html>
